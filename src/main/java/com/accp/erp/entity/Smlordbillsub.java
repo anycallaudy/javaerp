@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * <p>
@@ -44,11 +45,12 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
 
     @ApiModelProperty(value = "单据日期")
     @TableField("billDate")
-    private LocalDate billDate;
+    private Date billDate;
 
     @ApiModelProperty(value = "物料编号")
     @TableField("prodID")
     private String prodID;
+    
 
     @ApiModelProperty(value = "物料名称")
     @TableField("prodName")
@@ -91,7 +93,7 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
 
     @ApiModelProperty(value = "赠品")
     @TableField("isGift")
-    private Integer isGift;
+    private boolean isGift;
 
     @ApiModelProperty(value = "分录备注")
     @TableField("itemRemark")
@@ -122,7 +124,7 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
 
     @ApiModelProperty(value = "来源别")
     @TableField("tranType")
-    private Integer tranType;
+    private String tranType;
 
     @ApiModelProperty(value = "未转数量")
     @TableField("qtyRemain")
@@ -178,6 +180,9 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
     @ApiModelProperty(value = "辅助换算率")
     @TableField("eUnitRelation")
     private Float eUnitRelation;
+    //物料对象
+    @TableField(exist=false)
+    private Comproduct comproduct;
 
 
     public static final String FLAG = "flag";

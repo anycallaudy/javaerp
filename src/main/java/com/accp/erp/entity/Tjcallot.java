@@ -1,16 +1,19 @@
 package com.accp.erp.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * <p>
@@ -18,7 +21,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author zq
- * @since 2019-08-25
+ * @since 2019-08-30
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -27,7 +30,13 @@ import java.time.LocalDate;
 public class Tjcallot extends Model<Tjcallot> {
 
     private static final long serialVersionUID = 1L;
-
+    
+    //exist=true代表是数据库的字段
+    @TableField(exist=false)
+	private Tjcallotlist tjcallotlist;
+    @TableField(exist=false)
+	private List<Tjcallotlist> list;
+	
     @ApiModelProperty(value = "调拨单ID")
     @TableId("allotId")
     private Integer allotId;

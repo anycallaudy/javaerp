@@ -36,7 +36,7 @@ public class CodeGenerator {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/erpdata?useUnicode=true&characterEncoding=utf-8&allowMutilQueries=true&serverTimezone=UTC";
     private static final String USER_NAME = "root";
-    private static final String PASSWORD = "123";
+    private static final String PASSWORD = "123456";
 
     /**
      * <p>
@@ -83,7 +83,7 @@ public class CodeGenerator {
                                 // .setDbColumnUnderline(true)// 全局下划线命名
                                 // .setTablePrefix(new String[]{"unionpay_"})// 此处可以修改为您的表前缀
                                 .setNaming(NamingStrategy.underline_to_camel)// 表名生成策略
-                                .setInclude(new String[] {"commontype"}) // 需要生成的表
+                                .setInclude(new String[] {"XXX"}) // 需要生成的表
                                 // .setExclude(new String[]{"test"}) // 排除生成的表
                                 // 自定义实体，公共字段
                                 // .setSuperEntityColumns(new String[]{"test_id"})

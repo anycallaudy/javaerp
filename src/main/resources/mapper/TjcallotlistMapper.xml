@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.TjcallotlistDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Tjcallotlist">
+        <id column="MoveNo" property="MoveNo" />
+        <result column="MoveNumber" property="MoveNumber" />
+        <result column="ColumnNo" property="ColumnNo" />
+        <result column="StockNumber" property="StockNumber" />
+        <result column="StockName" property="StockName" />
+        <result column="Specifications" property="Specifications" />
+        <result column="Unit" property="Unit" />
+        <result column="Current" property="Current" />
+        <result column="Quantity" property="Quantity" />
+        <result column="EntryNote" property="EntryNote" />
+        <result column="EffectiveDate" property="EffectiveDate" />
+        <result column="testone" property="testone" />
+        <result column="testtwo" property="testtwo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        MoveNo, MoveNumber, ColumnNo, StockNumber, StockName, Specifications, Unit, Current, Quantity, EntryNote, EffectiveDate, testone, testtwo
+    </sql>
+	<insert id="addtjcalloteach">
+	  	INSERT INTO `erpdata`.`tjcallotlist` (
+  `MoveNo`,
+  `MoveNumber`,
+  `ColumnNo`,
+  `StockNumber`,
+  `StockName`,
+  `Specifications`,
+  `Unit`,
+  `Current`,
+  `Quantity`,
+  `EntryNote`,
+  `EffectiveDate`,
+  `testone`,
+  `testtwo`
+) 
+VALUES
+	  	<foreach collection="list" item="s" separator="," >
+	  		(#{allotId},#{s.moveNumber},#{s.columnNo},
+	  		#{s.stockNumber},#{s.stockName},#{s.specifications},#{s.unit},
+	  		#{s.current},#{s.quantity},#{s.entryNote},#{s.effectiveDate},#{s.testone},
+	  		#{s.testtwo})
+	  	</foreach>
+  </insert>
+</mapper>
